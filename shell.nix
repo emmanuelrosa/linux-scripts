@@ -19,5 +19,6 @@
 
       ghc -cpp -o ./out/er-i3memory ./src/er-i3memory.hs
       ghc -cpp -o ./out/er-i3swap ./src/er-i3swap.hs
+      ghc -cpp -o ./out/er-i3battery ./src/er-i3battery.hs
     '';
 }
