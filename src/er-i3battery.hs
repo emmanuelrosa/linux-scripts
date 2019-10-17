@@ -101,9 +101,11 @@ getStatus Nothing  _ _ =
     Left "Unable to calculate battery charge"
 
 getStatus' :: Int -> Bool -> Text -> Either Text Status
-getStatus' charge isPlugged "Charging"
-    | charge < 100 = Right $ Charging charge 
-    | otherwise = Right $ Charged isPlugged
+getStatus' charge isPlugged "Charging" =
+    Right $ Charging charge 
+
+getStatus' charge isPlugged "Full" =
+    Right $ Charged isPlugged 
 
 getStatus' charge _ "Discharging" = Right $ Discharging charge 
 
